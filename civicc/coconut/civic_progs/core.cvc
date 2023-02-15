@@ -1,0 +1,58 @@
+/*
+ * Name:     U. Buran
+ * UvAnetID: 13420828
+ * Course:   Compiler Construction
+ *
+ * core.cvc:
+ * This file contains the functions that are described in assignment 1.1.
+ * The functions are:
+ * - gcd(a, b): calculate the greatest common divisor of a and b.
+ * - fac(n): calculate the factorial of n.
+ * - fib(n): calculate the n-th fibonacci number.
+ * - isprime(n): check if n is a prime number.
+ */
+
+#include "civic.h"
+
+export int gcd(int a, int b) {
+  while (a != b) {
+    if (a > b) {
+      a = a - b;
+    } else {
+      b = b - a;
+    }
+  }
+  return a;
+}
+
+export int fac(int n) {
+  int res = 1;
+  for (int i = 1, n + 1) {
+    res = res * i;
+  }
+  return res;
+}
+
+export int fib(int n) {
+  int a = 0;
+  int b = 1;
+  int c = 0;
+  for (int i = 0, n - 1) {
+    c = a + b;
+    a = b;
+    b = c;
+  }
+  return a;
+}
+
+export int isprime(int n) {
+  if (n <= 1) {
+    return 0;
+  }
+  for (int j = 2, n) {
+    if (n % j == 0) {
+      return 0;
+    }
+  }
+  return 1;
+}
