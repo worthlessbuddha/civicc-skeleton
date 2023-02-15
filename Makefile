@@ -16,7 +16,6 @@ debug: coconut
 release: coconut
 	@cmake -DCMAKE_BUILD_TYPE=Release -S ./ -B build-$@/
 
-
 dist:
 	bash scripts/dist.sh
 

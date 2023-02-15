@@ -25,6 +25,10 @@ flex_target(CivicLexer src/scanparse/lexer.l "${CMAKE_CURRENT_BINARY_DIR}/lexer.
 ADD_FLEX_BISON_DEPENDENCY(CivicLexer CivicParser)
 
 
+if (CMAKE_HOST_SYSTEM_NAME MATCHES "Darwin")
+        set(BISON_EXECUTABLE "/usr/local/opt/bison/bin/bison")
+endif()
+
 include(./coconut/coconut.cmake)
 
 # Whenever you add a file, add it here too.
@@ -32,8 +36,9 @@ add_executable(civicc ${FLEX_CivicLexer_OUTPUTS} ${BISON_CivicParser_OUTPUTS}
     src/main.c src/print/print.c src/scanparse/scanParse.c
     src/global/globals.c src/global/globals.h
 
-    # Youre free to remove the demo directory and these entries.
-    src/demo/opt_sub.c src/demo/sum_ints.c src/demo/rename_identifiers.c
+    src/framework_assignments/strengthreduction.c
+    src/framework_assignments/countarithmetic.c
+    src/framework_assignments/hashtable.c
 )
 
 target_compile_options(civicc PRIVATE
@@ -41,11 +46,11 @@ target_compile_options(civicc PRIVATE
 )
 
 coconut_target_generate(civicc "${CMAKE_CURRENT_LIST_DIR}/src/main.ccn" dynamic)
-target_include_directories(civicc 
-    PUBLIC "${CMAKE_CURRENT_LIST_DIR}/src" 
+target_include_directories(civicc
+    PUBLIC "${CMAKE_CURRENT_LIST_DIR}/src"
 )
 
-add_custom_target(dot 
+add_custom_target(dot
     dot -Tpng ccngen/ast.dot > ast.png
     COMMENT "Generate a png of your ast based on the generated dot diagram."
 )

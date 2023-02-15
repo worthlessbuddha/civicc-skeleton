@@ -1,0 +1,111 @@
+/*
+ * Name:     U. Buran
+ * UvAnetID: 13420828
+ * Course:   Compiler Construction
+ *
+ * array.cvc:
+ * This file contains the functions that are described in assignment 1.3.
+ * The functions are:
+ * - printIntVec(vec): print the elements of vec.
+ * - printFloatVec(vec): print the elements of vec.
+ * - printIntMat(mat): print the elements of mat.
+ * - printFloatMat(mat): print the elements of mat.
+ * - scanIntVec(vec): scan the elements of vec.
+ * - scanFloatVec(vec): scan the elements of vec.
+ * - scanIntMat(mat): scan the elements of mat.
+ * - scanFloatMat(mat): scan the elements of mat.
+ * - matMul(a, b, c): multiply the matrices a and b and store the result in c.
+ */
+
+#include "civic.h"
+
+export int printIntVec(int[n] vec) {
+  for (int i = 0, n) {
+    printInt(vec[i]);
+    if (i < n - 1) {
+      printSpaces(1);
+    }
+  }
+  printNewlines(1);
+  return 0;
+}
+
+export float printFloatVec(float[n] vec) {
+  for (int i = 0, n) {
+    printFloat(vec[i]);
+    if (i < n - 1) {
+      printSpaces(1);
+    }
+  }
+  printNewlines(1);
+  return 0.0;
+}
+
+export int printIntMat(int[m, n] mat) {
+  for (int i = 0, m) {
+    for (int j = 0, n) {
+      printInt(mat[i, j]);
+      if (j < n - 1) {
+        printSpaces(1);
+      }
+    }
+    printNewlines(1);
+  }
+  return 0;
+}
+
+export float printFloatMat(float[m, n] mat) {
+  for (int i = 0, m) {
+    for (int j = 0, n) {
+      printFloat(mat[i, j]);
+      if (j < n - 1) {
+        printSpaces(1);
+      }
+    }
+    printNewlines(1);
+  }
+  return 0.0;
+}
+
+export int scanIntVec(int[n] vec) {
+  for (int i = 0, n) {
+    vec[i] = scanInt();
+  }
+  return 0;
+}
+
+export float scanFloatVec(float[n] vec) {
+  for (int i = 0, n) {
+    vec[i] = scanFloat();
+  }
+  return 0.0;
+}
+
+export int scanIntMat(int[m, n] mat) {
+  for (int i = 0, m) {
+    for (int j = 0, n) {
+      mat[i, j] = scanInt();
+    }
+  }
+  return 0;
+}
+
+export float scanFloatMat(float[m, n] mat) {
+  for (int i = 0, m) {
+    for (int j = 0, n) {
+      mat[i, j] = scanFloat();
+    }
+  }
+  return 0.0;
+}
+
+export float matMul(float[m, n] a, float[o, p] b, float[q, l] c) {
+  for (int i = 0, m) {
+    for (int j = 0, l) {
+      for (int k = 0, n) {
+        c[i, j] = c[i, j] + a[i, k] * b[k, j];
+      }
+    }
+  }
+  return 0.0;
+}
