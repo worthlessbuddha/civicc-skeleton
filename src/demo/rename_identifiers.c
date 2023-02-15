@@ -21,7 +21,7 @@ node_st *RIvarlet(node_st *node)
     char *name = NULL;
 
     name = VARLET_NAME(node);
-    VARLET_NAME(node) = STRcat( "__", name);
+    VARLET_NAME(node) = STRcat( "", name);
     MEMfree(name);
 
     return node;
@@ -35,7 +35,7 @@ node_st *RIvar(node_st *node)
     char *name = NULL;
 
     name = VAR_NAME(node);
-    VAR_NAME(node) = STRcat("__", name);
+    VAR_NAME(node) = STRcat("", name);
     MEMfree(name);
 
     return node;
