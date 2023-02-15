@@ -1,0 +1,125 @@
+/*
+ * Name:     U. Buran
+ * UvAnetID: 13420828
+ * Course:   Compiler Construction
+ *
+ * main.cvc:
+ * This file contains the main function that runs all the .cvc functions that
+ * are described in assignments 1.1, 1.2 and 1.3.
+ */
+
+#include "civic.h"
+
+/* CiviC Functions */
+extern int printIntVec(int[n] vec);
+extern float printFloatVec(float[n] vec);
+extern int printIntMat(int[m, n] mat);
+extern float printFloatMat(float[m, n] mat);
+extern int scanIntVec(int[n] vec);
+extern float scanFloatVec(float[n] vec);
+extern float matMul(float[m, n] a, float[o, p] b, float[q, l] c);
+extern int scanIntMat(int[m, n] mat);
+extern float scanFloatMat(float[m, n] mat);
+extern int gcd(int a, int b);
+extern int fac(int n);
+extern int fib(int n);
+extern int isprime(int n);
+extern int fibs(int n);
+extern int primes(int n);
+
+export int main() {
+  /* INITIALIZE VARIABLES */
+
+  /* Variables for Assignment 1.1 */
+  int gcd1 = 4;
+  int gcd2 = 6;
+  int gcd_res = gcd(gcd1, gcd2);
+  int factorial_input = 7;
+  int factorial = fac(factorial_input);
+  int f = 7;
+  int fib_res = fib(f);
+  int test_prime = 23;
+  int is_prime = isprime(test_prime);
+
+  /* Variables for Assignment 1.2 */
+  int n = 10;
+  int m = 10;
+  int[n] vec = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+  float[n] vec2 = [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ];
+  int[m, n] mat = [
+    [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+    [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+    [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+    [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+    [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+  ];
+  float[m, n] mat2 = [
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ],
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ],
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ],
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ],
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ],
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ],
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ],
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ],
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ],
+    [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10 ]
+  ];
+
+  /* Variables for Assignment 1.3 */
+  int[5] scan_int_vec = [ 0, 0, 0, 0, 0 ];
+  float[5] scan_float_vec = [ 0.0, 0.0, 0.0, 0.0, 0.0 ];
+
+  int[2, 2] scan_int_mat = [ [ 0, 0 ], [ 0, 0 ] ];
+  float[2, 2] scan_float_mat = [ [ 0.0, 0.0 ], [ 0.0, 0.0 ] ];
+
+  float[2, 2] a = [ [ 1.0, 2.0 ], [ 3.0, 4.0 ] ];
+  float[2, 2] b = [ [ 5.0, 6.0 ], [ 7.0, 8.0 ] ];
+  float[2, 2] c = [ [ 0.0, 0.0 ], [ 0.0, 0.0 ] ];
+
+  /* ######################## ASS 1.1 ######################## */
+  printNewlines(1);
+  printInt(gcd_res);
+  printNewlines(1);
+  printInt(factorial);
+  printNewlines(1);
+  printInt(fib_res);
+  printNewlines(1);
+  printInt(is_prime);
+  printNewlines(1);
+
+  /* ######################## ASS 1.2 ######################## */
+  fibs(n);
+  primes(n);
+
+  /* ######################## ASS 1.3 ######################## */
+  /* Print the vectors and matrices */
+  printIntVec(vec);
+  printNewlines(1);
+  printFloatVec(vec2);
+  printNewlines(1);
+
+  printIntMat(mat);
+  printNewlines(1);
+  printFloatMat(mat2);
+  printNewlines(1);
+
+  scanIntVec(scan_int_vec);
+  printIntVec(scan_int_vec);
+  printNewlines(1);
+  scanFloatVec(scan_float_vec);
+  printFloatVec(scan_float_vec);
+  printNewlines(1);
+
+  scanIntMat(scan_int_mat);
+  printIntMat(scan_int_mat);
+  printNewlines(1);
+  scanFloatMat(scan_float_mat);
+  printFloatMat(scan_float_mat);
+  printNewlines(1);
+
+  matMul(a, b, c);
+  printFloatMat(c);
+  printNewlines(1);
+  return 0;
+}

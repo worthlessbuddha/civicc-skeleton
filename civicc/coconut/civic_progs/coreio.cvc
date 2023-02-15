@@ -1,0 +1,53 @@
+/*
+ * Name:     U. Buran
+ * UvAnetID: 13420828
+ * Course:   Compiler Construction
+ *
+ * coreio.cvc:
+ * This file contains the functions that are described in assignment 1.2.
+ * The functions are:
+ * - fibs(n): print first n fibonacci numbers.
+ * - primes(n): print first n prime numbers.
+ */
+
+#include "civic.h"
+extern int fib(int n);
+
+export int fibs(int n) {
+  for (int i = 0, n) {
+    printInt(fib(i));
+  }
+  printNewlines(1);
+  return 0;
+}
+
+export int primes(int n) {
+  int count = 0;
+  int i = 0;
+
+  bool isprimes(int n) {
+    if (n <= 1) {
+      return false;
+    }
+    for (int j = 2, n) {
+      if (n % j == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  while (count < n) {
+    if (isprimes(i) == true) {
+      printInt(i);
+      count = count + 1;
+
+      if (count < n) {
+        printNewlines(1);
+      }
+    }
+    i = i + 1;
+  }
+  printNewlines(1);
+  return 0;
+}
